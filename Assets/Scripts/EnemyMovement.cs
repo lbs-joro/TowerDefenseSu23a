@@ -19,14 +19,26 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector2 direction = waypoints[currentWaypointIndex].transform.position - transform.position;
 
-        rb.velocity = direction.normalized * 5f;
+        rb.velocity = direction.normalized * 2f;
 
         if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < 0.1f) {
             //Jag har kommit fram till waypointen!
 
             currentWaypointIndex += 1;
+
+            // Är jag på sista waypointen?
+
+            if (currentWaypointIndex == waypoints.Count)
+            {
+                Destroy(gameObject);
+                //TODO: Spelaren förlorar ett liv ? etc. 
+            }
         
         }
+
+        float angle = Vector2.SignedAngle(Vector2.right, direction);
+
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
         
     }

@@ -23,6 +23,7 @@ public class TowerBuilder : MonoBehaviour
 
             if (Physics2D.OverlapCircle(towerPosition, 0.4f) == false)
             {
+                //FIX: Ignorera range-triggern i den här checken!
                 Instantiate(towerPrefab, towerPosition, Quaternion.identity);
             }
 
