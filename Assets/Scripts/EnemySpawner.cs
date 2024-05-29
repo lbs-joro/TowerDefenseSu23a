@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
             enemyMovement.waypoints = waypoints;
 
 
-            timer = 20f; 
+            timer = 4; 
         }
 
     }
